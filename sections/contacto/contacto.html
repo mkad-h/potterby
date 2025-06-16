@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Clínica Militar Santa Beatriz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-header">
+                <h2>Contacto</h2>
+                <p>Estamos aquí para ayudarte. Contáctanos a través de cualquiera de nuestros canales.</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Información de contacto -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Teléfono</h3>
+                            <p>+56 2 2345 6789</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p>contacto@clinicasantabeatriz.cl</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Dirección</h3>
+                            <p>Av. Las Condes 9765, Las Condes<br>Santiago, Chile</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
+                                <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                            </svg>
+                        </div>
+                        <div class="info-content">
+                            <h3>Horarios</h3>
+                            <p>Lun - Vie: 8:00 - 20:00<br>Sáb: 8:00 - 14:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de contacto -->
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <select id="asunto" name="asunto" required>
+                                <option value="">Selecciona un asunto</option>
+                                <option value="cita">Solicitar cita</option>
+                                <option value="consulta">Consulta médica</option>
+                                <option value="seguro">Información de seguros</option>
+                                <option value="reclamo">Reclamo o sugerencia</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="acepto" name="acepto" required>
+                                <span class="checkmark"></span>
+                                Acepto los <a href="https://policies.google.com/terms?hl=es" class="link">términos y condiciones</a> y la <a href="https://policies.google.com/privacy?hl=es" class="link">política de privacidad</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <span class="btn-text">Enviar mensaje</span>
+                            <div class="btn-loader" style="display: none;">
+                                <div class="spinner"></div>
+                            </div>
+                        </button>
+                    </form>
+
+                    <div id="form-message" class="form-message" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

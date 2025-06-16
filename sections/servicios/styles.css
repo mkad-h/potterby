@@ -1,0 +1,518 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Variables CSS para colores principales */
+:root {
+    --primary-color: #2B5797;
+    --primary-dark: #1e4379;
+    --secondary-color: #e74c3c;
+    --text-color: #333;
+    --text-light: #666;
+    --bg-light: #f5f5f5;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.08);
+    --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--white);
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1); 
+        opacity: 0.5; 
+    }
+    50% { 
+        transform: scale(1.1); 
+        opacity: 0.3; 
+    }
+}
+
+.header h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1s ease-out;
+}
+
+.header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+/* Animaciones principales */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* Sección de introducción */
+.intro-section {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+.intro-section h2 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.intro-section p {
+    font-size: 1.1em;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Grid de servicios */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+/* Card de servicio */
+.service-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 40px 30px;
+    box-shadow: 0 5px 20px var(--shadow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.8s ease-out backwards;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), #4a7db7);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-hover);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Íconos de especialidad */
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), #4a7db7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    font-size: 2em;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-icon::after {
+    transform: scale(1.5);
+    opacity: 0;
+}
+
+/* Información del doctor */
+.doctor-info {
+    text-align: center;
+}
+
+.doctor-name {
+    color: var(--primary-color);
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.specialty {
+    color: var(--secondary-color);
+    font-size: 1.1em;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.education {
+    color: var(--text-light);
+    font-size: 0.95em;
+}
+
+/* Botón de contacto */
+.contact-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.contact-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.contact-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(43, 87, 151, 0.3);
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    padding: 80px 20px;
+    text-align: center;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite 2s;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--white);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 5% auto;
+    padding: 40px;
+    border: none;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--text-color);
+}
+
+/* Formulario */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(43, 87, 151, 0.3);
+}
+
+/* Mensaje de éxito */
+.success-message {
+    background-color: #4CAF50;
+    color: var(--white);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* PARTNERS SECTION - MODIFICACIONES AQUÍ */
+/* PARTNERS SECTION - Para mostrar SOLO TEXTO en recuadros */
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 60px;
+}
+
+.partner-logo {
+    display: flex;
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center;   /* Centra el texto verticalmente */
+    height: 100px;         /* Altura fija para el recuadro */
+    width: 100%;           /* Ocupa el ancho disponible */
+    padding: 5px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-weight: bold; /* Hacer el texto más legible */
+    color: var(--primary-color); /* Color del texto, puedes ajustar */
+    text-align: center; /* Asegura que el texto largo se justifique bien */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.partner-logo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+/* No necesitarías la regla .partner-logo img {} si solo hay texto */
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+    .partner-logo {
+        height: 80px;
+    }
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    /* ... (Estilos responsive existentes) ... */
+
+    .partners-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Ajuste para móviles */
+        gap: 15px;
+        padding: 15px;
+    }
+    .partner-logo {
+        height: 80px; /* Altura fija ajustada para móvil */
+    }
+}
+@media (max-width: 480px) {
+    .container {
+        padding: 40px 15px;
+    }
+    
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    .header {
+        padding: 60px 20px;
+    }
+    
+    .cta-section {
+        padding: 60px 20px;
+    }
+}

@@ -1,0 +1,658 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Icon Styles */
+.icon-inline {
+    width: 1em; /* Makes it size relative to font-size of parent */
+    height: 1em;
+    vertical-align: middle; /* Aligns with text baseline */
+    margin-right: 5px;
+    stroke-width: 2; /* Adjust as needed */
+    stroke: currentColor; /* Inherits color from parent */
+    fill: none;
+}
+
+.icon-block {
+    width: 3.5rem; /* Larger size for service/doctor cards */
+    height: 3.5rem;
+    stroke-width: 2;
+    color: #1a5490; /* Specific color for block icons */
+    fill: none;
+}
+
+/* Header */
+.header {
+    background-color: #1a5490;
+    color: white;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.top-bar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-info {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-container {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 50px;
+    width: 50px;
+    background: linear-gradient(135deg, #1a5490 0%, #0e3a68 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px; /* Still useful for spacing if SVG has padding */
+}
+
+.logo-img .icon-block {
+    width: 30px; /* Adjust size for logo SVG specifically */
+    height: 30px;
+    color: white;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1a5490;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+}
+
+nav a:hover {
+    color: #1a5490;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #1a5490;
+    transition: width 0.3s;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.btn-agendar {
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+    display: inline-block;
+}
+
+.btn-agendar:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* --- Video de Fondo para la Sección Hero --- */
+.hero {
+    position: relative; /* Establece el contexto de posicionamiento para los hijos absolutos */
+    overflow: hidden; /* Oculta cualquier parte del video que se desborde */
+    height: 500px; /* Ajusta esta altura según tu diseño */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff; /* Color del texto para que contraste con el video */
+}
+
+.hero .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* Asegura que el video esté debajo del contenido */
+}
+
+.hero .video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Asegura que el video cubra todo el espacio sin distorsión */
+}
+
+.hero .hero-content {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido esté encima del video */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo semi-transparente para mejorar la legibilidad del texto */
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 3em; /* Ajusta el tamaño de la fuente si es necesario */
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em; /* Ajusta el tamaño de la fuente si es necesario */
+    margin-bottom: 20px;
+}
+
+.hero .btn-agendar {
+    background-color: #007bff; /* Un color que contraste con el fondo */
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.hero .btn-agendar:hover {
+    background-color: #0056b3;
+}
+/* Services */
+.services {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1a5490;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #e74c3c;
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #eaeaea;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.service-icon {
+    font-size: 3.5rem; /* Base for block icon sizing */
+    color: #1a5490;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.service-icon svg { /* Ensure SVG within service-icon uses the block icon style */
+    width: 3.5rem;
+    height: 3.5rem;
+    color: #1a5490;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #1a5490;
+}
+
+/* Doctors Section */
+.doctors {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+}
+
+.doctors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.doctor-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Asegúrate de que esta regla exista y sea correcta */
+.doctor-avatar {
+    width: 120px; /* Tamaño deseado para el ancho del recuadro */
+    height: 120px; /* Tamaño deseado para la altura del recuadro */
+    border-radius: 50%; /* Hace que el recuadro sea circular */
+    margin: 0 auto 20px; /* Centra el avatar horizontalmente y le da espacio abajo */
+    overflow: hidden; /* ¡CRÍTICO! Esto recorta la imagen para que quepa dentro del círculo */
+    background-color: #f0f0f0; /* Un color de fondo por si la imagen no carga */
+    display: flex; /* Para centrar la imagen dentro si es necesario */
+    justify-content: center;
+    align-items: center;
+}
+
+
+.doctor-avatar .doctor-photo {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+}
+
+.doctor-card h3 {
+    color: #1a5490;
+    margin-bottom: 10px;
+}
+
+.doctor-specialty {
+    color: #e74c3c;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.doctor-experience {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Partners */
+.partners {
+    padding: 60px 0;
+    background-color: white;
+}
+
+.partners-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.partner-logo {
+    width: 160px;
+    height: 80px;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* Login Form - Honeypot */
+.login-section {
+    background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+}
+
+.login-container {
+    max-width: 450px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #1a5490, #e74c3c);
+}
+
+.login-container h2 {
+    color: #1a5490;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #1a5490;
+    box-shadow: 0 0 0 3px rgba(26, 84, 144, 0.1);
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #777;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+}
+
+.toggle-password svg {
+    width: 1.2em; /* Adjust size for toggle icon */
+    height: 1.2em;
+    vertical-align: middle;
+    stroke: currentColor;
+    fill: none;
+}
+
+
+.btn-login {
+    width: 100%;
+    background: linear-gradient(to right, #1a5490, #0e3a68);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    margin-top: 10px;
+}
+
+.btn-login:hover {
+    opacity: 0.9;
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.forgot-password a {
+    color: #1a5490;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: text-decoration 0.3s;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.additional-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(to right, #0e3a68, #1a5490);
+    color: white;
+    padding: 50px 0 30px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-column h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #e74c3c;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-links a svg { /* Ensure SVG within footer links uses the inline icon style */
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 0; /* Already handled by gap */
+    stroke: currentColor;
+    fill: none;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-bottom p {
+    margin-bottom: 5px;
+}
+
+/* Honeypot tracking */
+.hidden-field {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+/* Alert styles */
+.alert {
+    display: none;
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    border: 1px solid #f5c6cb;
+    font-size: 0.95rem;
+}
+
+/* Security badge */
+.security-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    color: #28a745;
+    font-size: 0.85rem;
+}
+
+.security-badge svg { /* Ensure SVG within security badge uses the inline icon style */
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    stroke: currentColor;
+    fill: none;
+}
+
+/* Admin link */
+.admin-link {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 0.7rem;
+    color: #aaa;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    nav ul {
+        display: none;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Médicos - Centro de Salud</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>Nuestros Servicios Médicos</h1>
+        <p>Más de 40 años cuidando la salud de las familias militares y civiles de Chile</p>
+    </header>
+
+    <!-- Container principal -->
+    <div class="container">
+        <!-- Sección de introducción -->
+        <section class="intro-section">
+            <h2>Especialidades Médicas de Excelencia</h2>
+            <p>Contamos con un equipo de profesionales altamente calificados, egresados de las mejores universidades del país, 
+               comprometidos con brindar una atención médica integral y de calidad a todos nuestros pacientes.</p>
+        </section>
+
+        <!-- Grid de servicios -->
+        <div class="services-grid" id="servicios">
+            <!-- Las cards se generarán dinámicamente con JavaScript -->
+        </div>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>¿Necesitas atención médica?</h2>
+                <p>Nuestro equipo está listo para brindarte la mejor atención personalizada</p>
+                <a href="portal/portal.html" class="cta-button">Portal Pacientes</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal de contacto (oculto por defecto) -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Agendar Cita</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="especialidad">Especialidad:</label>
+                    <select id="especialidad" name="especialidad" required>
+                        <option value="">Seleccione una especialidad</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje (opcional):</label>
+                    <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Solicitud</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

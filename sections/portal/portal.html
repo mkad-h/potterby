@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Pacientes - Centro Médico</title>
+    <link rel="stylesheet" href="styles.css">
+
+<form id="loginForm">
+    <div class="form-group">
+        <label for="rut">RUT</label>
+        <input type="text" id="rut" name="rut" placeholder="12.345.678-9" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required>
+    </div>
+    
+    <div style="position: absolute; left: -9999px; opacity: 0;">
+        <label for="email_hp">Correo electrónico (no rellenar)</label>
+        <input type="text" id="email_hp" name="email_hp" tabindex="-1" autocomplete="off">
+    </div>
+    <div style="position: absolute; left: -9999px; opacity: 0;">
+        <label for="url_hp">URL del sitio (no rellenar)</label>
+        <input type="url" id="url_hp" name="url_hp" tabindex="-1" autocomplete="off">
+    </div>
+    <div class="remember-forgot">
+        <label>
+            <input type="checkbox" name="remember"> Recordarme
+        </label>
+        <a href="#">¿Olvidaste tu contraseña?</a>
+    </div>
+    
+    <button type="submit" class="login-btn">Iniciar Sesión</button>
+</form>
+</html>
